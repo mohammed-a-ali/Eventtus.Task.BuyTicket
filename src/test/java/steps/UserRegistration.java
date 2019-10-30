@@ -25,11 +25,11 @@ public class UserRegistration extends Hooks {
     @Given("the user in the home page")
     public void the_user_in_the_home_page() {
         homeObject = new HomePage(driver);
-        homeObject.openRegistrationPage();
     }
 
     @When("I click on register link")
     public void i_click_on_register_link() {
+        homeObject.openRegistrationPage();
         Assert.assertTrue(driver.getCurrentUrl().contains("signup"));
     }
 
@@ -41,9 +41,10 @@ public class UserRegistration extends Hooks {
 
     @Then("The registration page displays successfully")
     public void the_registration_page_displays_successfully() {
-        //Assert.assertTrue(registerObject.successfulMessage.getText().contains("Your registration completed"));
+        String userNameCheck = registerObject.checkUserNameAfterRegister();
+        Assert.assertEquals(fullName, userNameCheck);
         System.out.println("Full Name : "+ fullName + " User Name : " + username + " Email : " + email + " Password : " + password);
-        registerObject.logOt();
+        registerObject.logOut();
     }
 
     @And("I entered {string}, {string}, {string}, {string}")

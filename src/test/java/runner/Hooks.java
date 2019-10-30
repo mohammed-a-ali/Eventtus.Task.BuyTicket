@@ -14,7 +14,7 @@ import static Browser.Driver.driver;
 public class Hooks extends AbstractTestNGCucumberTests {
     @BeforeSuite
     public static void openBrowser(@Optional("chrome") String browserName){
-        Driver.startDriver(browserName);
+        Driver.startDriver();
     }
 
     @AfterSuite

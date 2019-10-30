@@ -1,5 +1,6 @@
 package Browser;
 
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,15 +11,13 @@ import utilites.LoadProperties;
 
 import java.util.concurrent.TimeUnit;
 
-public class Driver {
+public class Driver extends AbstractTestNGCucumberTests {
     public static WebDriver driver;
     static String url = LoadProperties.environment.getProperty("URL");
-    static String browser = LoadProperties.environment.getProperty("Browser");
+    static String browserName = LoadProperties.environment.getProperty("Browser");
 
-    @Parameters("browser")
-    public static void startDriver(String browserName)
+    public static void startDriver()
     {
-        browserName = browser;
         if (browserName.equalsIgnoreCase("chrome")) {
            WebDriverManager.chromedriver().setup();
            driver = new ChromeDriver();

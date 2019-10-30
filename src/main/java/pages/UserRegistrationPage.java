@@ -36,6 +36,9 @@ public class UserRegistrationPage extends PageBase {
     @FindBy (xpath = "//a[@href='/logout']")
     WebElement logoutLink;
 
+    @FindBy (xpath = "//h5[@class='userName']")
+    WebElement userNameLable;
+
     public void userRegistration(String fullName, String userName, String email, String password)
     {
         setTextElementText(fullNameTextBox, fullName);
@@ -46,9 +49,14 @@ public class UserRegistrationPage extends PageBase {
         clickButton(registerButton);
     }
 
-    public void logOt()
+    public void logOut()
     {
         userAvatar.click();
         logoutLink.click();
+    }
+
+    public String checkUserNameAfterRegister()
+    {
+        return userNameLable.getText();
     }
 }

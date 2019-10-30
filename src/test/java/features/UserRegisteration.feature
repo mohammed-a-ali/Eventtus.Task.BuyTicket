@@ -1,5 +1,6 @@
+@order = 1
 Feature: User Registration
-  I want to check that the user can register in our ECommerce website
+  I want to check that the user can register in Eventtus website
 
   Scenario: User Registration
     Given the user in the home page

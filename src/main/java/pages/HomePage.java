@@ -13,8 +13,24 @@ public class HomePage extends PageBase {
     @FindBy(linkText = "Create new account")
     WebElement registerLink;
 
+    @FindBy (id = "user_login")
+    WebElement userNameTextBox;
+
+    @FindBy (id = "user_password")
+    WebElement passwordTextBox;
+
+    @FindBy (id = "submit")
+    WebElement LoginButton;
+
     public void openRegistrationPage()
     {
         clickButton(registerLink);
+    }
+
+    public void login(String userName, String password)
+    {
+        setTextElementText(userNameTextBox, userName);
+        setTextElementText(passwordTextBox, password);
+        clickButton(LoginButton);
     }
 }
