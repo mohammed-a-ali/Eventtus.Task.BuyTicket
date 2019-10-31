@@ -22,8 +22,8 @@ public class UserRegistration extends Hooks {
     String email = fakeData.internet().emailAddress();
     String password = fakeData.number().digits(8).toString();
 
-    @Given("the user in the home page")
-    public void the_user_in_the_home_page() {
+    @Given("I am on the home page")
+    public void I_am_on_the_home_page() {
         homeObject = new HomePage(driver);
     }
 
@@ -44,7 +44,7 @@ public class UserRegistration extends Hooks {
         String userNameCheck = registerObject.checkUserNameAfterRegister();
         Assert.assertEquals(fullName, userNameCheck);
         System.out.println("Full Name : "+ fullName + " User Name : " + username + " Email : " + email + " Password : " + password);
-        registerObject.logOut();
+        //registerObject.logOut();
     }
 
     @And("I entered {string}, {string}, {string}, {string}")

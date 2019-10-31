@@ -1,4 +1,4 @@
-@order = 1
+@ignore
 Feature: User Registration
   I want to check that the user can register in Eventtus website
 

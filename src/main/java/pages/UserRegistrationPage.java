@@ -30,10 +30,10 @@ public class UserRegistrationPage extends PageBase {
     @FindBy (name = "commit")
     WebElement registerButton;
 
-    @FindBy (xpath = "//li[@class='dropdown logged-in']")
+    @FindBy (xpath = "//li[@class='dropdown logged-in'] | //button[@class='btn-link btn btn-secondary']")
     WebElement userAvatar;
 
-    @FindBy (xpath = "//a[@href='/logout']")
+    @FindBy (xpath = "//a[@href='/logout'] | //button[@class='btn dropdown-item']")
     WebElement logoutLink;
 
     @FindBy (xpath = "//h5[@class='userName']")

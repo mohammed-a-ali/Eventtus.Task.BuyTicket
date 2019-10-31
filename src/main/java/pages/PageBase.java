@@ -23,7 +23,7 @@ public class PageBase {
     //Set text in a textbox
     protected static void setTextElementText(WebElement textElement, String value)
     {
-        textElement.clear();
+        //textElement.clear();
         textElement.sendKeys(value);
     }
 }

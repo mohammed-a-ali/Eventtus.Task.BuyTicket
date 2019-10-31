@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
@@ -12,7 +13,7 @@ import static Browser.Driver.driver;
 public class UserLogin extends Hooks {
 
     HomePage homeObject = new HomePage(driver);
-    UserRegistrationPage registerObject;
+    UserRegistrationPage registerObject = new UserRegistrationPage(driver);
     String username = "hania.ahmed@gmail.com";
     String password = "ka3bool";
     String fullName = "Haniaahmed2";
@@ -22,11 +23,14 @@ public class UserLogin extends Hooks {
         homeObject.login(username, password);
     }
 
-    @Then("The user is logged in")
-    public void theUserIsLoggedIn() {
-        registerObject = new UserRegistrationPage(driver);
+    @Then("I am logged in")
+    public void IamLoggedIn() {
         String userNameCheck = registerObject.checkUserNameAfterRegister();
         Assert.assertEquals(fullName, userNameCheck);
+    }
 
+    @And("I log out")
+    public void ILogOut() {
+        registerObject.logOut();
     }
 }

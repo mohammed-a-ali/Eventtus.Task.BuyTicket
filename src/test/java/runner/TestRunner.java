@@ -4,6 +4,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src/test/java/features",
         glue = {"steps"},
+        tags ={"not @ignore"},
         plugin = {"pretty", "html: target/cucumber-html-report"})
 public class TestRunner extends Hooks {
 
