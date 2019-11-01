@@ -8,15 +8,17 @@ import org.testng.Assert;
 import pages.BuyTicketPage;
 import pages.BuyingTicketCompleted;
 import pages.FillTicketDetailsPage;
+import pages.PaymentPage;
 import runner.Hooks;
 
 import static Browser.Driver.driver;
 
 public class BuyTicket extends Hooks {
 
-    BuyTicketPage buyTicket;
-    FillTicketDetailsPage fillDetails;
-    BuyingTicketCompleted buyTicketFinished;
+    BuyTicketPage buyTicket = new BuyTicketPage(driver);;
+    FillTicketDetailsPage fillDetails = new FillTicketDetailsPage(driver);;
+    BuyingTicketCompleted buyTicketFinished = new BuyingTicketCompleted(driver);;
+    PaymentPage payment = new PaymentPage(driver);;
     Faker fake = new Faker();
     String firstTicketFName = fake.name().firstName();
     String firstTicketLName = fake.name().lastName();
@@ -28,7 +30,6 @@ public class BuyTicket extends Hooks {
 
     @When("I open {string} event")
     public void IOpenEvent(String eventName) {
-        buyTicket = new BuyTicketPage(driver);
         buyTicket.selectEvent(eventName);
     }
 
@@ -47,14 +48,37 @@ public class BuyTicket extends Hooks {
 
     @And("I select Fill ticket details")
     public void iSelectFillTicketDetails() {
-        fillDetails = new FillTicketDetailsPage(driver);
         fillDetails.fillTicketDetails(firstTicketFName, firstTicketLName, firstTicketEmail, secondTicketFName, secondTicketLName, secondTicketEmail);
     }
 
     @Then("Order confirmation appears")
     public void orderConfirmationAppears() {
-        buyTicketFinished = new BuyingTicketCompleted(driver);
         String confirmationMSG = buyTicketFinished.orderConfirmation();
         Assert.assertEquals(confirmationMSG, "Thank you for your order!");
+    }
+
+    @When("I open FIFA2022 event")
+    public void iOpenFIFAEvent() {
+        buyTicket.SelectFifa();
+    }
+
+    @And("I fill Credit Card Data")
+    public void iFillCreditCardData() {
+        payment.fillCreditCardData();
+    }
+
+    @And("I click Pay button")
+    public void iClickPayButton() {
+        fillDetails.clickPayButton();
+    }
+
+    @And("I select Credit Card")
+    public void iSelectCreditCard() {
+        payment.selectCreditCard();
+    }
+
+    @And("I click Submit button")
+    public void iClickSubmitButton() {
+        fillDetails.clickSubmitButton();
     }
 }

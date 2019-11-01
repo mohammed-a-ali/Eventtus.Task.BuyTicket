@@ -18,6 +18,9 @@ public class BuyTicketPage extends PageBase {
     @FindBy (xpath = "//*[text()='"+btnName+"']")
     WebElement GetTicketsBtn;
 
+    @FindBy (xpath = "//*[text()='FIFA 2022']")
+    WebElement FIFA2022Event;
+
     @FindBy (xpath = "//*[text()='Register']")
     WebElement registerButton;
 
@@ -44,9 +47,13 @@ public class BuyTicketPage extends PageBase {
         clickButton(registerButton);
     }
 
+    public void SelectFifa()
+    {
+        clickButton(FIFA2022Event);
+    }
+
     public String CheckRegisterTicketsPage ()
     {
         return RegisterTicketsPage.getText();
     }
-
 }
