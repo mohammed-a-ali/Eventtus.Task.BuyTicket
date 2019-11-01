@@ -46,10 +46,4 @@ public class UserRegistration extends Hooks {
         System.out.println("Full Name : "+ fullName + " User Name : " + username + " Email : " + email + " Password : " + password);
         //registerObject.logOut();
     }
-
-    @And("I entered {string}, {string}, {string}, {string}")
-    public void iEntered(String firstName, String lastName, String email, String password) {
-        registerObject = new UserRegistrationPage(driver);
-        registerObject.userRegistration(firstName, lastName, email, password);
-    }
 }
