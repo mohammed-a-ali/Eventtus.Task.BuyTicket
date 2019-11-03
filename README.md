@@ -5,12 +5,12 @@
 
 ![Open Project](https://github.com/mohammed-a-ali/Eventtus.Task.BuyTicket/blob/master/images/OpenProject.png)
 
-3. Then you need to expand until `TestRunner.java` Class you can find it under this path `src\test\java\runner`
+3. Then you need to expand until `features` folder, you can find it under this path `src\test\java\features`
 
-![TestRunner calss](https://github.com/mohammed-a-ali/Eventtus.Task.BuyTicket/blob/master/images/OpenTestRunnerClass.png)
+![Feature File](https://github.com/mohammed-a-ali/Eventtus.Task.BuyTicket/blob/master/images/FeatureFiles.png)
 
-4. To run the code you need to Righ click on `TestRunner.java` then select `Run TestRunner`
+4. To run the code you need to Righ click on the selected feature file for example `UserLogin.feature` then select `Run Feature: User Login`
 
-![Run TestRunner](https://github.com/mohammed-a-ali/Eventtus.Task.BuyTicket/blob/master/images/RunTestRunner.png)
+![Run Feature: User Login](https://github.com/mohammed-a-ali/Eventtus.Task.BuyTicket/blob/master/images/RunFeatureFile.png)
 
-The code will start running
+The code will start running the selected scenario
