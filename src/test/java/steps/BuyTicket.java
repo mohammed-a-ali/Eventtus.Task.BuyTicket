@@ -1,5 +1,6 @@
 package steps;
 
+import Browser.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -9,11 +10,8 @@ import pages.BuyTicketPage;
 import pages.BuyingTicketCompleted;
 import pages.FillTicketDetailsPage;
 import pages.PaymentPage;
-import runner.Hooks;
 
-import static Browser.Driver.driver;
-
-public class BuyTicket extends Hooks {
+public class BuyTicket extends Driver {
 
     BuyTicketPage buyTicket = new BuyTicketPage(driver);;
     FillTicketDetailsPage fillDetails = new FillTicketDetailsPage(driver);;

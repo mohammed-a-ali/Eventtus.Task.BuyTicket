@@ -1,5 +1,6 @@
 package steps;
 
+import Browser.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,11 +9,8 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.UserRegistrationPage;
-import runner.Hooks;
 
-import static Browser.Driver.driver;
-
-public class UserRegistration extends Hooks {
+public class UserRegistration extends Driver {
 
     HomePage homeObject ;
     UserRegistrationPage registerObject;
@@ -24,11 +22,12 @@ public class UserRegistration extends Hooks {
 
     @Given("I am on the home page")
     public void I_am_on_the_home_page() {
-        homeObject = new HomePage(driver);
+        //homeObject = new HomePage(driver);
     }
 
     @When("I click on register link")
     public void i_click_on_register_link() {
+        homeObject = new HomePage(driver);
         homeObject.openRegistrationPage();
         Assert.assertTrue(driver.getCurrentUrl().contains("signup"));
     }

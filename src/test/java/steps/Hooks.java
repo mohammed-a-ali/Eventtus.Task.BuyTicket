@@ -1,29 +1,29 @@
-package runner;
+package steps;
 
 import Browser.Driver;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Optional;
+import org.testng.annotations.AfterClass;
 import utilites.Helper;
 
 import static Browser.Driver.driver;
 
 public class Hooks extends AbstractTestNGCucumberTests {
-    @BeforeSuite
-    public static void openBrowser(@Optional("chrome") String browserName){
+
+    @Before
+    public void openBrowser(){
         Driver.startDriver();
     }
 
-    @AfterSuite
-    public static void closeBrowser(){
+    @After
+    public void closeBrowser(){
         Driver.stopDriver();
     }
 
     //Take a screenshot when testcase fails and add it to the Screenshot folder
-    @AfterMethod
+    @AfterClass
     public void ScreenshotOnFailure(ITestResult result)
     {
         if (result.getStatus() == ITestResult.FAILURE)

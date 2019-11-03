@@ -1,16 +1,14 @@
 package steps;
 
+import Browser.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.UserRegistrationPage;
-import runner.Hooks;
 
-import static Browser.Driver.driver;
-
-public class UserLogin extends Hooks {
+public class UserLogin extends Driver {
 
     HomePage homeObject = new HomePage(driver);
     UserRegistrationPage registerObject = new UserRegistrationPage(driver);
